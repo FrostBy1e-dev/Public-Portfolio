@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<a href="#" class="nav_logo">Jay Daniel</a>
+
+<div class="nav_menu" id="nav-menu">
+  <ul class="nav_list grid">
+    <li class="nav_item">
+      <a href="/index.html" class="nav_link">
+        <i class="uil uil-home nav_icon"></i> Home
+      </a>
+    </li>
+    <li class="nav_item">
+      <a href="/Pages/blog.html" class="nav_link">
+        <i class="uil uil-blogger-alt nav_icon"></i> Blog
+      </a>
+    </li>
+    <li class="nav_item">
+      <a href="/Pages/project.html" class="nav_link">
+        <i class="uil uil-cog nav_icon"></i> Projects
+      </a>
+    </li>
+    <li class="nav_item">
+      <a href="/Pages/analytics.html" class="nav_link">
+        <i class="uil uil-chart-growth nav_icon"></i> Analytics
+      </a>
+    </li>
+  </ul>
+  <i class="uil uil-times nav_close" id="nav-close"></i>
+</div>
+
+<div class="nav_btns">
+  <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+  <div class="nav_toggle" id="nav-toggle">
+    <i class="uil uil-apps"></i>
+  </div>
+</div>
+
+
+<style>
+
+/* Navigation Buttons */
+
+
+    /* Navigation */
+.nav {
+  max-width: 986px;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_logo,
+.nav_toggle {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav_logo:hover {
+  color: var(--first-color);
+}
+
+.nav_toggle {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.nav_toggle:hover {
+  color: var(--first-color);
+}
+
+@media screen and (max-width: 767px) {
+.nav_menu {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--body-color);
+  padding: 2rem 1.5rem 4rem;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 1.5rem 1.5rem 0 0;
+  transition: 0.3s;
+}
+}
+
+.show-menu {
+  bottom: 0%;
+}
+
+.nav_list {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.nav_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav_link:hover {
+  color: var(--first-color);
+}
+
+.nav_icon {
+  font-size: 1.2rem;
+}
+
+.nav_close {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--first-color);
+}
+
+.nav_close:hover {
+  color: var(--first-color-alt);
+}
+
+/* dark theme */
+.nav_btns {
+  display: flex;
+  align-items: center;
+}
+
+.change-theme {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  margin-right: var(--mb-1);
+  cursor: pointer;
+}
+
+.change-theme:hover {
+  color: var(--first-color);
+}
+</style>
+
+
+<script>
+  
+/* Menu Show Functions */
+const navMenu = document.getElementById('nav-menu'), 
+  navToggle = document.getElementById('nav-toggle'),
+  navClose = document.getElementById('nav-close')
+
+if(navToggle) {
+  navToggle.addEventListener('click', () =>{
+    navMenu.classList.add('show-menu')
+  })
+}
+
+if(navClose) {
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu")
+  })
+}
+
+const navLink = document.querySelectorAll('.nav_link')
+
+function linkAction() {
+  const navMenu = document.getElementById('nav-menu')
+  navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/* Skills */
+const skillsContent = document.getElementsByClassName("skills_content")
+    skillsHeader = document.querySelectorAll(".skills_header")
+
+function toggleSkills() {
+  let itemClass = this.parentNode.className
+
+  for (i = 0; i < skillsContent.length; i++) {
+    skillsContent[i].className = "skills_content skills_close"
+  }
+
+  if (itemClass === 'skills_content skills_close') {
+    this.parentNode.className = "skills_content skills_open"
+  }
+}
+
+skillsHeader.forEach((i) => {
+  i.addEventListener("click", toggleSkills)
+})
+
+/*==================== CHANGE BACKGROUND HEADER ====================*/ 
+function scrollHeader(){
+  const nav = document.getElementById('header')
+  
+  if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+
+/* Dark Theme */
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'uil-sun'
+
+
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
+if (selectedTheme) {
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+  themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+}
+
+themeButton.addEventListener('click', () => {
+
+  document.body.classList.toggle(darkTheme)
+  themeButton.classList.toggle(iconTheme)
+  
+  localStorage.setItem('selected-theme', getCurrentTheme())
+  localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+</script>
