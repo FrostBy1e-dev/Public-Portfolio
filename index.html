@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <link rel="stylesheet" href="/CSS/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+  </style>
+
+  <!--UNICONS-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <!-- Icon -->
+  <link rel="icon" href="/Images/icon.webp" type="images/x-icon">
+
+  <!-- Early dark mode check script -->
+  <script>
+    const darkTheme = 'dark-theme';
+    const selectedTheme = localStorage.getItem('selected-theme');
+
+    if (selectedTheme === 'dark') {
+      document.body.classList.add(darkTheme);
+    }
+  </script>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- home -->
+    <section class="home section" id="home">
+      <div class="home_container container grid">
+        <div class="home_content grid">
+          <div class="home_social">
+            <a href="https://www.linkedin.com/in/jaydaniel-frost/" class="home_social-icon">
+              <i class="uil uil-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/Frost8786594651" class="home_social-icon">
+              <i class="uil uil-twitter"></i>
+            </a>
+            <a href="https://github.com/FrostBy1e-dev" class="home_social-icon">
+              <i class="uil uil-github"></i>
+            </a>
+          </div>
+
+          <div class="home_img">
+            <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0" mask-type="alpha">
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+              </mask>
+              <g mask="url(#mask0)">
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+
+                <image id="homeBlobImg" class="home_blob-img" xlink:href="" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="home_data">
+            <h1 class="home_title">Hi I'm Jay Daniel</h1>
+            <h3 class="home_subtitle">
+              Aspiring Data Analyst and Web Developer
+            </h3>
+            <p class="home_description">Fresh graduate IT Student</p>
+            <a href="#contact" class="button button--flex" id="contactButton">
+              Contact Me <i class="uil uil-message button_icon"></i>
+            </a>
+            <div class="popup" id="contactPopup">
+
+              <p>Social Links in the footer!</p>
+            </div>
+          </div>
+        </div>
+        <div class="home_scroll">
+          <a href="#about" class="home_scroll-button button--flex">
+            <i class="uil uil-mouse-alt home_scroll-mouse"></i>
+            <span class="home_scroll-name">Scroll Down</span>
+            <i class="uil uil-arrow-down home_scroll-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section class="about section" id="about">
+      <h2 class="section_title">About Me</h2>
+      <span class="section_subtitle">My introduction</span>
+
+      <div class="about_container container grid">
+        <img src="Images/pic.jpg" alt="" class="about_img">
+        <div class="about_data">
+          <p class="about_description">
+            Entry level Data Analyst, intermediate level of Web Developing,
+            with good amount of knowledge and experience, working in web technologies
+            and UI/UX design.
+          </p>
+
+          <p class="workexp">
+            Working Experience </p>
+          <br>
+          <div class="about_info">
+
+            <div>
+              <span class="about_info-title">Internship</span>
+              <span class="about_info-name"><br> Ethiopian Airlines</span>
+            </div>
+          </div>
+
+          <div class="about_buttons">
+            <br>
+            <a id="openPDFButton" class="button button--flex">
+              View CV <i class="uil uil-book-open button_icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="skills section" id="skills">
+      <h2 class="section_title">Skills</h2>
+      <span class="section_subtitle">Technical Level</span>
+
+      <div class="skills_container container grid">
+        <!-- Skills #1 -->
+        <div class="skills_content skills_open">
+          <div class="skills_header">
+            <i class="uil uil-laptop skills_icon"></i>
+            <div>
+              <h1 class="skills_title">Web Developer</h1>
+              <span class="skills_substitle">website designing, and building</span>
+            </div>
+            <i class="uil uil-arrow-down skills_arrow"></i>
+          </div>
+          <div class="skills_list grid">
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">HTML</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_html"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">CSS</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_css"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">JavaScript</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_js"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">PHP</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_js"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Laravel Framework</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_js"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Skills #2 -->
+        <div class="skills_content skills_close">
+          <div class="skills_header">
+            <i class="uil uil-analytics skills_icon"></i>
+            <div>
+              <h1 class="skills_title">Data Analyst</h1>
+              <span class="skills_substitle">interpreting data, and turning it into actionable insights</span>
+            </div>
+            <i class="uil uil-arrow-down skills_arrow"></i>
+          </div>
+
+          <div class="skills_list grid">
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Python</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_python"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Pandas</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_pandas"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Microsoft Excel</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_excel"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">SQL</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_sql"></span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- Skills #3 -->
+        <div class="skills_content skills_close">
+          <div class="skills_header">
+            <i class="uil uil-monitor-heart-rate skills_icon"></i>
+            <div>
+              <h1 class="skills_title">Other Technical Skill</h1>
+              <span class="skills_substitle">my other nerdy skillset</span>
+            </div>
+            <i class="uil uil-arrow-down skills_arrow"></i>
+          </div>
+          <div class="skills_list grid">
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Creative Multimedia</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_multimedia"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Agile/Scrum Methodology</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_agile"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">IoT | Internet of Things</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_excel"></span>
+              </div>
+            </div>
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">Network Configuration and Troubleshooting</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_network"></span>
+              </div>
+            </div>
+
+            <div class="skills_data">
+              <div class="skills_titles">
+                <h3 class="skills_name">System Building</h3>
+              </div>
+              <div class="skills_bar">
+                <span class="skills_percentage skills_network"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- modal -->
+    <!-- Modal structure -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h2>Currently Unemployed</h2>
+        <p>Thank you for visiting. I'm currently unemployed and now open for freelance or long-term job or contract!</p>
+        <button class="close-button" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <div id="chatbot-container">
+      <div id="chatbot-messages"></div>
+      <input type="text" id="chatbot-input" placeholder="Ask me something about Jay" />
+      <button id="chatbot-send">Send</button>
+    </div>
+
+
+  </main>
+  <!-- footer -->
+  <footer class="footer">
+  </footer>
+  <script src="/JS/main.js"></script>
+  <script src="/JS/home.js"></script>
+</body>
+
+</html>
